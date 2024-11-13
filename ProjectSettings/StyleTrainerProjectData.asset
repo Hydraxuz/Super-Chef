@@ -1,0 +1,767 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07c9b2c97f84356bb2bfac29363e611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StyleTrainerData:
+    rid: 207699019711119425
+  m_DefaultStyleData:
+    rid: 207699019711119426
+  m_DefaultStyleVersion: 2023111600
+  m_DefaultStyles:
+  - rid: 207699021254623297
+  m_AssetPath: 
+  m_PreviousProjectIDs: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 207699019711119425
+      type: {class: StyleTrainerData, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: d18c45f2-dae6-470e-8f12-615df0eb3060
+        m_State: 1
+        m_Disposing: 0
+        m_Styles:
+        - rid: 207699021254623298
+        m_Version: 202231001
+    - rid: 207699019711119426
+      type: {class: StyleTrainerData, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 11000000-0000-0000-0000-000000000011
+        m_State: 1
+        m_Disposing: 0
+        m_Styles:
+        - rid: 207699021254623299
+        m_Version: 202231001
+    - rid: 207699021254623297
+      type: {class: StyleData, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 00000000-0000-0000-0000-000000000000
+        m_State: 1
+        m_Disposing: 0
+        m_IsFallback: 1
+        m_Thumbnail:
+          rid: -2
+        m_Visible: 0
+        selectedCheckPointGUID: 00000000-0000-0000-0000-000000000000
+        m_FavoriteCheckPointGUID: active
+        parentID: 00000000-0000-0000-0000-000000000000
+        m_ProjectID: 00000000-0000-0000-0000-000000000000
+        m_TrainingSteps: 2000
+        m_CheckPoints:
+        - m_Guid: 00000000-0000-0000-0000-000000000000
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: 00000000-0000-0000-0000-000000000000
+          m_Name: Default
+          m_Description: Default style.
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 
+            m_State: 0
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: 
+          m_ValidationImagesData: []
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 2000
+        m_SampleOutputPrompts: []
+        m_TrainingSetData: []
+        m_Name: Default
+        m_Description: Default style.
+    - rid: 207699021254623298
+      type: {class: StyleData, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: cbe1faf9-3b89-4d1a-9606-4d1352bf5ff8
+        m_State: 1
+        m_Disposing: 0
+        m_IsFallback: 0
+        m_Thumbnail:
+          rid: 207699021254623300
+        m_Visible: 1
+        selectedCheckPointGUID: 3d987b16-cb97-453a-b13a-c1053ec44ef7
+        m_FavoriteCheckPointGUID: 00000000-0000-0000-0000-000000000000
+        parentID: 00000000-0000-0000-0000-000000000000
+        m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+        m_TrainingSteps: 2000
+        m_CheckPoints:
+        - m_Guid: 64e31ee2-c84c-42bb-8e96-003edf4263b7
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: c3df28b7-6413-410a-8d98-1830379bfc9f
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: c3df28b7-6413-410a-8d98-1830379bfc9f
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 759e270c-c15b-4e92-8315-6ef0486b8ed0
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 759e270c-c15b-4e92-8315-6ef0486b8ed0
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 0eb61b5b-f358-49fe-b442-adc3ffc5077d
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 0eb61b5b-f358-49fe-b442-adc3ffc5077d
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 200
+        - m_Guid: cd63325f-3fb3-4472-809b-7ee1704402f8
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 39306c70-d9e5-46a9-8fa4-1455e62fcbc3
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 39306c70-d9e5-46a9-8fa4-1455e62fcbc3
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 59105b3e-6bd8-4cd6-8d57-dfc6098ddeb4
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 59105b3e-6bd8-4cd6-8d57-dfc6098ddeb4
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 79ee8852-e60e-4bce-b488-069d221eb152
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 79ee8852-e60e-4bce-b488-069d221eb152
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 400
+        - m_Guid: c3a71769-ad5a-485d-af74-5855da650521
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: c8d17790-8b7b-4209-88b6-c03c19c35454
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: c8d17790-8b7b-4209-88b6-c03c19c35454
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 442aa845-7edd-4f27-8a96-4a00b73b39a1
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 442aa845-7edd-4f27-8a96-4a00b73b39a1
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 2e4033c1-5b5e-4c00-8163-bb0410364e73
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 2e4033c1-5b5e-4c00-8163-bb0410364e73
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 600
+        - m_Guid: b5d3011d-54d0-41c4-bbea-1891c27cc683
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 32e5b882-45f6-469a-a943-5fb07f7fb468
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 32e5b882-45f6-469a-a943-5fb07f7fb468
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 5a95d5d3-ab50-46e9-aae8-9c849879e3a1
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 5a95d5d3-ab50-46e9-aae8-9c849879e3a1
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: e4392cbf-d41f-478f-a332-47f743c30474
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: e4392cbf-d41f-478f-a332-47f743c30474
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 800
+        - m_Guid: 47f8c649-b48a-4263-b755-574363d4b490
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 8868657a-f287-42a0-9e39-ab98b058ce4a
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 8868657a-f287-42a0-9e39-ab98b058ce4a
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 603be4d1-1035-461b-a4f4-e6196aadab97
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 603be4d1-1035-461b-a4f4-e6196aadab97
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 04e644d5-8d46-4dcb-ae72-b56be5f9f348
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 04e644d5-8d46-4dcb-ae72-b56be5f9f348
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 1000
+        - m_Guid: 504fb0ae-9df7-4ad7-be5d-be7bf9dee0d0
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 7ac87965-a612-424d-a0b4-ca6653d8280a
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 7ac87965-a612-424d-a0b4-ca6653d8280a
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 25e15ccb-6100-441f-9513-3c62dfd65be2
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 25e15ccb-6100-441f-9513-3c62dfd65be2
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 3cc57e30-4c02-4694-be58-cb4448d4f206
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 3cc57e30-4c02-4694-be58-cb4448d4f206
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 1200
+        - m_Guid: 4f6764a0-1fab-4098-aafb-41cbdbd25a40
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: febc7c63-ece3-45ad-9b19-10537b69bbb0
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: febc7c63-ece3-45ad-9b19-10537b69bbb0
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 95dddc9a-a64f-446e-bdce-578cad5d18b8
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 95dddc9a-a64f-446e-bdce-578cad5d18b8
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 88c6b997-2517-453d-9cb5-b332eb1814ad
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 88c6b997-2517-453d-9cb5-b332eb1814ad
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 1400
+        - m_Guid: b12ae645-8061-4483-83dd-e584cf6abb33
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 1fb14d46-0582-4838-bbb8-034083409281
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 1fb14d46-0582-4838-bbb8-034083409281
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 2d03ad7c-7800-44d3-be2d-fc27ba2683e1
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 2d03ad7c-7800-44d3-be2d-fc27ba2683e1
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: beb5ed1d-379a-4690-a9b6-042c3bcc4d4a
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: beb5ed1d-379a-4690-a9b6-042c3bcc4d4a
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 1600
+        - m_Guid: 94af51e5-74ff-4bc0-8ed0-da3274c3c801
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 1404e900-f9e8-4599-889c-a2f47626f688
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 1404e900-f9e8-4599-889c-a2f47626f688
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 69b533ac-fe05-44bd-84ed-83c21a8994ba
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 69b533ac-fe05-44bd-84ed-83c21a8994ba
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: febbc1e4-abf4-4954-bc39-00f4d90f6869
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: febbc1e4-abf4-4954-bc39-00f4d90f6869
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 1800
+        - m_Guid: 3d987b16-cb97-453a-b13a-c1053ec44ef7
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_Name: Alice
+          m_Description: main character
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+          m_ValidationImagesData:
+          - m_Guid: 3918898b-c7cd-4ba8-b512-c281345e53ae
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 3918898b-c7cd-4ba8-b512-c281345e53ae
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef
+          - m_Guid: 614f1446-179c-4a68-bf94-ac18016d6e04
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 614f1446-179c-4a68-bf94-ac18016d6e04
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef with hat
+          - m_Guid: 5a341987-8402-4e55-9cc6-3f6d06324790
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 5a341987-8402-4e55-9cc6-3f6d06324790
+              m_State: 1
+              m_Disposing: 0
+            m_Prompt: chef hat
+          m_FavoriteSampleOutputDataGuid: 3918898b-c7cd-4ba8-b512-c281345e53ae
+          m_TrainingSteps: 2000
+        m_SampleOutputPrompts:
+        - Chef
+        - Chef with hat
+        - Chef hat
+        m_TrainingSetData:
+        - m_Guid: 449b2925-3995-494d-8506-c45c1002f205
+          m_State: 1
+          m_Disposing: 0
+          m_TrainingSet:
+          - m_Guid: 0ba58009-c0a0-4a12-ae18-2fd23d05f176
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623301
+          - m_Guid: b4a5de72-ee93-42e4-b304-b2f9acc2cc27
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623302
+          - m_Guid: 8055130a-9cdd-4940-ad4a-3e82320a2f83
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623303
+          - m_Guid: d86e1dbe-2b62-47ab-adb7-741f36f553af
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623304
+          - m_Guid: 34bd5855-75a6-4869-b042-1e957bcafa65
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623305
+          - m_Guid: 41d9ad05-b7b8-42a5-aa57-b0bcbb781f85
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623306
+          - m_Guid: 9838addf-2658-4079-a31c-7d4993509173
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623307
+          - m_Guid: 6a40f049-0931-43e9-a651-6b6af45f0824
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623308
+          - m_Guid: f763f8e1-b2a6-4771-bac6-d8156066be72
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623309
+          - m_Guid: 51aa01c7-4ab1-4743-8632-106fa955c591
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623310
+          - m_Guid: 02c54783-0e9e-4882-a203-22334eeb4db4
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623311
+          - m_Guid: c516f01d-44c7-4196-a7a7-d4f36ed26ebe
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623312
+          - m_Guid: aa7e5918-b620-4c04-ad4e-81d78560014d
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623313
+          - m_Guid: 455c3b60-5e94-446a-aedb-929536446cfc
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623314
+          - m_Guid: 966a5cde-7bfe-44d9-bb23-93cc0f12e7a1
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              rid: 207699021254623315
+          m_ProjectID: d18c45f2-dae6-470e-8f12-615df0eb3060
+        m_Name: Alice
+        m_Description: main character
+    - rid: 207699021254623299
+      type: {class: StyleData, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 5cc104e0-423a-473e-8034-b9d346cb2357
+        m_State: 1
+        m_Disposing: 0
+        m_IsFallback: 0
+        m_Thumbnail:
+          rid: -2
+        m_Visible: 1
+        selectedCheckPointGUID: 00000000-0000-0000-0000-000000000000
+        m_FavoriteCheckPointGUID: active
+        parentID: 00000000-0000-0000-0000-000000000000
+        m_ProjectID: 11000000-0000-0000-0000-000000000011
+        m_TrainingSteps: 2000
+        m_CheckPoints:
+        - m_Guid: 03fa404b-39fc-4979-9272-deb5d8c4b24c
+          m_State: 1
+          m_Disposing: 0
+          m_ProjectID: 11000000-0000-0000-0000-000000000011
+          m_Name: 'Happy Harvest [Orion V4 2000]'
+          m_Description: 8 Nov 2023
+          parent_id: 00000000-0000-0000-0000-000000000000
+          m_TrainingSetData:
+            m_Guid: 3e758588-960f-44f5-865a-d5eaa1b1dec4
+            m_State: 5
+            m_Disposing: 0
+            m_TrainingSet: []
+            m_ProjectID: 11000000-0000-0000-0000-000000000011
+          m_ValidationImagesData:
+          - m_Guid: 96b39a19-2d3e-4bc5-aa3c-38667ed6eba5
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 96b39a19-2d3e-4bc5-aa3c-38667ed6eba5
+              m_State: 5
+              m_Disposing: 0
+            m_Prompt: A chicken
+          - m_Guid: 05de072c-ebbc-43d7-886b-7ac4f9cbd079
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 05de072c-ebbc-43d7-886b-7ac4f9cbd079
+              m_State: 5
+              m_Disposing: 0
+            m_Prompt: A cow
+          - m_Guid: 2dbfc212-f87b-45f9-a05a-06368e190ca1
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 2dbfc212-f87b-45f9-a05a-06368e190ca1
+              m_State: 5
+              m_Disposing: 0
+            m_Prompt: A dog
+          - m_Guid: e0139464-a868-402a-95b8-b4c26685a97b
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: e0139464-a868-402a-95b8-b4c26685a97b
+              m_State: 5
+              m_Disposing: 0
+            m_Prompt: A farmer
+          - m_Guid: 4421bead-a3ff-4c09-9514-61e127eb470e
+            m_State: 5
+            m_Disposing: 0
+            m_ImageArtifact:
+              m_Guid: 4421bead-a3ff-4c09-9514-61e127eb470e
+              m_State: 5
+              m_Disposing: 0
+            m_Prompt: A pine tree
+          m_FavoriteSampleOutputDataGuid: 
+          m_TrainingSteps: 1200
+        m_SampleOutputPrompts:
+        - A chicken
+        - A cow
+        - A dog
+        - A farmer
+        - A pine tree
+        m_TrainingSetData:
+        - m_Guid: 3e758588-960f-44f5-865a-d5eaa1b1dec4
+          m_State: 5
+          m_Disposing: 0
+          m_TrainingSet: []
+          m_ProjectID: 11000000-0000-0000-0000-000000000011
+        m_Name: Default
+        m_Description: Default Style
+    - rid: 207699021254623300
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 00000000-0000-0000-0000-000000000000
+        m_State: 3
+        m_Disposing: 0
+    - rid: 207699021254623301
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 0ba58009-c0a0-4a12-ae18-2fd23d05f176
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623302
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: b4a5de72-ee93-42e4-b304-b2f9acc2cc27
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623303
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 8055130a-9cdd-4940-ad4a-3e82320a2f83
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623304
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: d86e1dbe-2b62-47ab-adb7-741f36f553af
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623305
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 34bd5855-75a6-4869-b042-1e957bcafa65
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623306
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 41d9ad05-b7b8-42a5-aa57-b0bcbb781f85
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623307
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 9838addf-2658-4079-a31c-7d4993509173
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623308
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 6a40f049-0931-43e9-a651-6b6af45f0824
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623309
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: f763f8e1-b2a6-4771-bac6-d8156066be72
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623310
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 51aa01c7-4ab1-4743-8632-106fa955c591
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623311
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 02c54783-0e9e-4882-a203-22334eeb4db4
+        m_State: 4
+        m_Disposing: 1
+    - rid: 207699021254623312
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: c516f01d-44c7-4196-a7a7-d4f36ed26ebe
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623313
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: aa7e5918-b620-4c04-ad4e-81d78560014d
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623314
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 455c3b60-5e94-446a-aedb-929536446cfc
+        m_State: 1
+        m_Disposing: 1
+    - rid: 207699021254623315
+      type: {class: ImageArtifact, ns: Unity.Muse.StyleTrainer, asm: Unity.Muse.StyleTrainer}
+      data:
+        m_Guid: 966a5cde-7bfe-44d9-bb23-93cc0f12e7a1
+        m_State: 1
+        m_Disposing: 1
