@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 12f;
-    public float jumpSpeed = 18f;
+    public float jumpHeight = 18f;
     private Rigidbody2D player;
 
     public Transform groundCheck;
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isTouchingGround)
         {
-            player.linearVelocity = new Vector2(player.linearVelocity.x, jumpSpeed);
+            player.linearVelocity = new Vector2(player.linearVelocity.x, jumpHeight);
         }
     }
 

@@ -46,6 +46,7 @@ public class PlayerRespawn : MonoBehaviour
         if (!gameObject.activeInHierarchy) return; // Check if the player is active
 
         transform.position = respawnPoint;
+        ResetPlayerState();
 
         foreach (var enemy in deactivatedEnemies)
         {
@@ -54,6 +55,16 @@ public class PlayerRespawn : MonoBehaviour
         deactivatedEnemies.Clear();
 
         gameObject.SetActive(true);
+    }
+
+    private void ResetPlayerState()
+    {
+        PlayerController playerController = GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.speed = 12f; // Reset speed to 12
+            GetComponent<SpriteRenderer>().color = Color.white; // Reset color to white
+        }
     }
 
     public static void RegisterDeactivatedEnemy(GameObject enemy)
