@@ -6,8 +6,8 @@ public class EnemyAI : MonoBehaviour
     public float speed = 2f;
     public bool verticalMovement = false; 
 
-    [Range(-10f, 10f)] public float minBound = -10f; 
-    [Range(-10f, 10f)] public float maxBound = 10f;  
+    [Range(-10f, 0)] public float minBound = -10f; 
+    [Range(0, 10f)] public float maxBound = 10f;  
     
     [Range (15f, 25f)] public float bounceForce = 15f;
     private Rigidbody2D rb;
