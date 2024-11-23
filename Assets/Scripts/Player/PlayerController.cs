@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D player;
 
     public Transform groundCheck;
-    public float groundCheckRadius;
+    private float groundCheckRadius = 0.55f;
     public LayerMask groundLayer;
     private bool isTouchingGround;
 
@@ -89,3 +89,4 @@ public class PlayerController : MonoBehaviour
         playerAnimation.SetBool("OnGround", isTouchingGround);
     }
 }
+
