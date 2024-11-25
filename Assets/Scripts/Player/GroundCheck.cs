@@ -2,40 +2,62 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public float rayLength = 0.1f; // Length of the ray for ground detection
+    public Transform groundCheckTransform; // The transform used to check for ground
+    public float groundCheckRadius = 0.1f; // The radius for checking ground contact
     public LayerMask groundLayer; // Layer to identify what counts as ground
 
-    private Collider2D playerCollider; // Reference to the player's collider
+    public bool IsTouchingGround { get; private set; } // Indicates if the player is grounded
+    public bool IsOnSlope { get; private set; } // Indicates if the player is on a slope
+    public float SlopeAngle { get; private set; } // Angle of the slope the player is on
 
-    public bool IsGrounded { get; private set; } // Public getter for the ground state
+    private Collider2D playerCollider; // Reference to the player's collider
+    private Vector2 slopeNormal; // Normal of the slope
 
     private void Awake()
     {
-        playerCollider = GetComponent<Collider2D>(); // Get the player's collider
+        if (groundCheckTransform == null)
+        {
+            Debug.LogError("GroundCheck: groundCheckTransform is not assigned!");
+            enabled = false; // Disable script if no ground check transform is assigned
+        }
     }
 
-    private void FixedUpdate()
+    public void UpdateGroundCheck()
     {
-        IsGrounded = false;
+        // Reset the ground state values at the start of each check
+        IsTouchingGround = false;
+        IsOnSlope = false;
+        SlopeAngle = 0f;
 
-        // Cast a ray from the bottom of the collider
-        Vector2 rayOrigin = new Vector2(playerCollider.bounds.center.x, playerCollider.bounds.min.y);
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, groundLayer);
+        // Perform an overlap circle check at the ground check position
+        Collider2D groundHit = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
 
-        if (hit.collider != null)
+        if (groundHit != null)
         {
-            IsGrounded = true; // Set to true if the ray hits a ground layer object
+            IsTouchingGround = true;
+
+            // Get the slope normal by checking the contact point's normal
+            Vector2 hitPoint = groundHit.ClosestPoint(groundCheckTransform.position);
+            slopeNormal = (hitPoint - (Vector2)groundCheckTransform.position).normalized;
+
+            // Calculate the slope angle
+            SlopeAngle = Vector2.Angle(Vector2.up, slopeNormal);
+
+            // Determine if the player is on a slope
+            if (SlopeAngle > 0f && SlopeAngle <= 45f) // Adjust max slope angle as needed
+            {
+                IsOnSlope = true;
+            }
         }
     }
 
     private void OnDrawGizmos()
     {
-        // Optional: Visualize the raycast in the scene view
-        if (playerCollider != null)
+        // Optional: Visualize the ground check position in the scene view
+        if (groundCheckTransform != null)
         {
-            Vector2 rayOrigin = new Vector2(playerCollider.bounds.center.x, playerCollider.bounds.min.y);
-            Gizmos.color = IsGrounded ? Color.green : Color.red;
-            Gizmos.DrawLine(rayOrigin, rayOrigin + Vector2.down * rayLength);
+            Gizmos.color = IsTouchingGround ? (IsOnSlope ? Color.yellow : Color.green) : Color.red;
+            Gizmos.DrawWireSphere(groundCheckTransform.position, groundCheckRadius);
         }
     }
 }
