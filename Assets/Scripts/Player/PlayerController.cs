@@ -5,22 +5,19 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 12f;
     public float jumpHeight = 18f;
+
     private Rigidbody2D player;
-
-    public Transform groundCheck;
-    private float groundCheckRadius = 0.55f;
-    public LayerMask groundLayer;
-    private bool isTouchingGround;
-
     private Animator playerAnimation;
-
     private Vector2 moveInput; // Store movement input
     private PlayerInputActions inputActions; // Declare input actions variable
+
+    private GroundCheck groundCheck; // Reference to the GroundCheck component
 
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<Animator>();
+        groundCheck = GetComponent<GroundCheck>(); // Get the GroundCheck component
 
         inputActions = new PlayerInputActions(); // Initialize the input actions
     }
@@ -52,7 +49,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         HandleMovement();
     }
 
@@ -77,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (isTouchingGround)
+        if (groundCheck.IsGrounded) // Use the GroundCheck component
         {
             player.linearVelocity = new Vector2(player.linearVelocity.x, jumpHeight);
         }
@@ -86,7 +82,6 @@ public class PlayerController : MonoBehaviour
     private void UpdateAnimations()
     {
         playerAnimation.SetFloat("Speed", Mathf.Abs(player.linearVelocity.x));
-        playerAnimation.SetBool("OnGround", isTouchingGround);
+        playerAnimation.SetBool("OnGround", groundCheck.IsGrounded); // Use the GroundCheck component
     }
 }
-
