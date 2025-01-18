@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private GroundCheck groundCheck; // Reference to the GroundCheck component
 
-    public PhysicsMaterial2D normalMaterial; // Physics material for flat ground
-    public PhysicsMaterial2D slopeMaterial; // Physics material for slopes
+    public PhysicsMaterial2D slipMaterial; // Physics material for air
+    public PhysicsMaterial2D stickMaterial; // Physics material for ground
 
     private void Awake()
     {
@@ -48,35 +48,16 @@ public class PlayerController : MonoBehaviour
     {
         // Update ground check
         groundCheck.UpdateGroundCheck(); // Call the ground check update method
-        
+
         HandleMovement(); // Handle movement in physics updates
         UpdateAnimations(); // Update player animations
+        UpdateMaterial(); // Update physics material based on ground state and input
     }
 
     private void HandleMovement()
     {
-        if (groundCheck.IsOnSlope)
-        {
-            // Switch to slope material if on a slope with no input
-            if (moveInput.x == 0f)
-            {
-                player.sharedMaterial = slopeMaterial; // Apply slope material
-            }
-            else
-            {
-                player.sharedMaterial = normalMaterial; // Apply normal material
-            }
-
-            // Adjust movement speed based on slope angle
-            float slopeFactor = Mathf.Cos(groundCheck.SlopeAngle * Mathf.Deg2Rad);
-            player.linearVelocity = new Vector2(moveInput.x * speed * slopeFactor, player.linearVelocity.y);
-        }
-        else
-        {
-            // Normal movement on flat ground
-            player.sharedMaterial = normalMaterial; // Apply normal material
-            player.linearVelocity = new Vector2(moveInput.x * speed, player.linearVelocity.y);
-        }
+        // Normal movement
+        player.linearVelocity = new Vector2(moveInput.x * speed, player.linearVelocity.y);
 
         if (moveInput.x != 0f)
         {
@@ -88,6 +69,12 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>(); // Read movement input
+
+        // Switch to slip material when there is movement input
+        if (moveInput.x != 0f)
+        {
+            player.sharedMaterial = slipMaterial; // Apply slip material when moving
+        }
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
@@ -109,5 +96,33 @@ public class PlayerController : MonoBehaviour
         // Update animations based on movement and ground state
         playerAnimation.SetFloat("Speed", Mathf.Abs(player.linearVelocity.x));
         playerAnimation.SetBool("OnGround", groundCheck.IsTouchingGround);
+    }
+
+    private void UpdateMaterial()
+    {
+        // If grounded and no input, switch to stick material
+        if (groundCheck.IsTouchingGround && moveInput.x == 0f)
+        {
+            if (player.sharedMaterial != stickMaterial)
+            {
+                player.sharedMaterial = stickMaterial;
+            }
+        }
+        // If not grounded, use slip material
+        else if (!groundCheck.IsTouchingGround)
+        {
+            if (player.sharedMaterial != slipMaterial)
+            {
+                player.sharedMaterial = slipMaterial;
+            }
+        }
+        // Otherwise, if there's input, use slip material
+        else if (moveInput.x != 0f)
+        {
+            if (player.sharedMaterial != slipMaterial)
+            {
+                player.sharedMaterial = slipMaterial;
+            }
+        }
     }
 }

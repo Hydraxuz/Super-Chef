@@ -1161,8 +1161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   jumpHeight: 18
-  normalMaterial: {fileID: 6200000, guid: 782efa5ad252e8e4592f63f820bb9e43, type: 2}
-  slopeMaterial: {fileID: 6200000, guid: 5d384c47a7f0831488ddead6cdb59ca0, type: 2}
+  slipMaterial: {fileID: 6200000, guid: 782efa5ad252e8e4592f63f820bb9e43, type: 2}
+  stickMaterial: {fileID: 6200000, guid: 5d384c47a7f0831488ddead6cdb59ca0, type: 2}
 --- !u!50 &563865783
 Rigidbody2D:
   serializedVersion: 5
@@ -16032,7 +16032,7 @@ Transform:
   m_GameObject: {fileID: 6856933533203491351}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -190, y: 3.5, z: 0}
+  m_LocalPosition: {x: -188.5, y: 3.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16396,7 +16396,7 @@ MonoBehaviour:
   verticalMovement: 1
   minBound: -2
   maxBound: 5
-  bounceForce: 20
+  bounceForce: 19
 --- !u!114 &6801574265996121882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16414,7 +16414,7 @@ MonoBehaviour:
   verticalMovement: 1
   minBound: -2
   maxBound: 5
-  bounceForce: 20
+  bounceForce: 19
 --- !u!114 &6801574266551140659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16432,7 +16432,7 @@ MonoBehaviour:
   verticalMovement: 1
   minBound: -2
   maxBound: 5
-  bounceForce: 20
+  bounceForce: 19
 --- !u!1 &6856933533203491351
 GameObject:
   m_ObjectHideFlags: 0

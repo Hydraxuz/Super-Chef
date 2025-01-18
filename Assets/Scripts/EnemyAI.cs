@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     [Range(-10f, 0)] public float minBound = -10f; 
     [Range(0, 10f)] public float maxBound = 10f;  
     
-    [Range (15f, 25f)] public float bounceForce = 15f;
+    [Range (15f, 100f)] public float bounceForce = 15f;
     private Rigidbody2D rb;
     private bool movingForward = true; 
     private Vector3 localScale;
