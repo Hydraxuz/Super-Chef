@@ -5,15 +5,18 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 12f; // Base movement speed
     public float jumpHeight = 18f; // Jump force
-    private Rigidbody2D player; // Player's Rigidbody2D
-    private Animator playerAnimation; // Player's Animator
     private Vector2 moveInput; // Stores movement input
-    private PlayerInputActions inputActions; // Input actions for player controls
-
-    private GroundCheck groundCheck; // Reference to the GroundCheck component
 
     public PhysicsMaterial2D slipMaterial; // Physics material for air
     public PhysicsMaterial2D stickMaterial; // Physics material for ground
+
+    public float coyoteTime = 0.1f; // Coyote time duration
+    public float coyoteCounter; // Coyote time counter
+
+    private Rigidbody2D player; // Player's Rigidbody2D
+    private Animator playerAnimation; // Player's Animator
+    private GroundCheck groundCheck; // Reference to the GroundCheck component
+    private PlayerInputActions inputActions; // Input actions for player controls
 
     private void Awake()
     {
@@ -21,7 +24,7 @@ public class PlayerController : MonoBehaviour
         playerAnimation = GetComponent<Animator>();
         groundCheck = GetComponent<GroundCheck>(); // Get the GroundCheck component
 
-        inputActions = new PlayerInputActions(); // Initialize input actions
+        inputActions = new PlayerInputActions(); // Create a new instance of the input actions
     }
 
     private void OnEnable()
@@ -48,6 +51,8 @@ public class PlayerController : MonoBehaviour
     {
         // Update ground check
         groundCheck.UpdateGroundCheck(); // Call the ground check update method
+
+        coyoteCounter = groundCheck.IsTouchingGround ? coyoteTime : coyoteCounter - Time.deltaTime;
 
         HandleMovement(); // Handle movement in physics updates
         UpdateAnimations(); // Update player animations
@@ -84,10 +89,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (groundCheck.IsTouchingGround)
+        if (groundCheck.IsTouchingGround || coyoteCounter > 0f)
         {
             // Apply jump force if grounded
             player.linearVelocity = new Vector2(player.linearVelocity.x, jumpHeight);
+            coyoteCounter = 0f; // Reset coyote time counter
         }
     }
 

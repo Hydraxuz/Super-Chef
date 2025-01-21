@@ -1163,6 +1163,8 @@ MonoBehaviour:
   jumpHeight: 18
   slipMaterial: {fileID: 6200000, guid: 782efa5ad252e8e4592f63f820bb9e43, type: 2}
   stickMaterial: {fileID: 6200000, guid: 5d384c47a7f0831488ddead6cdb59ca0, type: 2}
+  coyoteTime: 0.1
+  coyoteCounter: 0
 --- !u!50 &563865783
 Rigidbody2D:
   serializedVersion: 5
