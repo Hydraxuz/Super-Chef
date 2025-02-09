@@ -48,7 +48,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "LR Keyboard",
                     "id": "2937759f-991f-4fd2-bbfc-eebd5f86eab4",
                     "path": "2DVector",
                     "interactions": "",
@@ -81,7 +81,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "LR Controller",
                     "id": "f11947ec-a47f-4b6c-a958-912f1bf42deb",
                     "path": "2DVector",
                     "interactions": "",
