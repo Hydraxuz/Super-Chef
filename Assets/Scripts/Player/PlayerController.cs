@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public float coyoteTime = 0.1f; // Coyote time duration
     public float coyoteCounter; // Coyote time counter
+    public float fallMultiplier = 2f; // Fall multiplier for gravity
 
     private Rigidbody2D player; // Player's Rigidbody2D
     private Animator playerAnimation; // Player's Animator
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         coyoteCounter = groundCheck.IsTouchingGround ? coyoteTime : coyoteCounter - Time.deltaTime;
 
         HandleMovement(); // Handle movement in physics updates
+        ApplyGravityMOdifier(); // Apply gravity modifier based on fall state
         UpdateAnimations(); // Update player animations
         UpdateMaterial(); // Update physics material based on ground state and input
     }
@@ -129,6 +131,18 @@ public class PlayerController : MonoBehaviour
             {
                 player.sharedMaterial = slipMaterial;
             }
+        }
+    }
+    private void ApplyGravityMOdifier()
+    {
+        // Apply fall multiplier when falling
+        if (player.linearVelocity.y < 0f)
+        {
+            player.gravityScale = fallMultiplier;
+        }
+        else
+        {
+            player.gravityScale = 1f;
         }
     }
 }
