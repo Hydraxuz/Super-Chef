@@ -941,7 +941,7 @@ Transform:
   m_GameObject: {fileID: 344600716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -177.4, y: 4.374617, z: 0.024072519}
+  m_LocalPosition: {x: -170.29, y: 4.374617, z: 0.024072519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2371,7 +2371,7 @@ Transform:
   m_GameObject: {fileID: 1188018815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.5, y: 4.374617, z: 0.024072519}
+  m_LocalPosition: {x: -25.48, y: 4.374617, z: 0.024072519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4297,7 +4297,7 @@ Transform:
   m_GameObject: {fileID: 1889329557}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.3, y: 4.374617, z: 0.024072519}
+  m_LocalPosition: {x: 150.08, y: 4.374617, z: 0.024072519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15088,7 +15088,7 @@ MonoBehaviour:
   player: {fileID: 563865786}
   speed: 6
   verticalMovement: 0
-  minBound: -10
+  minBound: -5
   maxBound: 10
   bounceForce: 15
 --- !u!114 &1021030118826350310
