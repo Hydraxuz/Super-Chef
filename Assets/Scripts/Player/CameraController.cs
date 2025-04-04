@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    public float heightOffset = 5.0f;
+    private float minY = 10.0f; // Minimum Y position for the camera
 
     private Transform playerTransform;
 
@@ -19,9 +19,11 @@ public class CameraController : MonoBehaviour
     {
         if (playerTransform != null)
         {
+            float targetY = Mathf.Max(playerTransform.position.y, minY);
+
             transform.position = new Vector3(
                 playerTransform.position.x,
-                playerTransform.position.y + heightOffset,
+                targetY,
                 transform.position.z
             );
         }
