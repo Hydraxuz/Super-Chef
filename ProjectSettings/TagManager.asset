@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - FallDetector
   - Checkpoint
@@ -44,15 +44,11 @@ TagManager:
   - name: Background
     uniqueID: 626189141
     locked: 0
-  - name: Midground
-    uniqueID: 2834063113
-    locked: 0
-  - name: Foreground
-    uniqueID: 3895129001
-    locked: 0
   - name: Tilemap
     uniqueID: 4219681305
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default
