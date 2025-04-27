@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
         Rigidbody2D playerRb = collision.collider.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
-            if (collision.contacts[0].normal.y < -0.5f) // Player hit from above
+            if (collision.contacts[0].normal.y < -0.45f) // Player hit from above
             {
                 playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
                 PlayerRespawn.RegisterDeactivatedEnemy(gameObject); // Update to use PlayerRespawn
