@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    private float minY = 10.0f; // Minimum Y position for the camera
+    public float minY = 10f; // Minimum Y position for the camera
 
     private Transform playerTransform;
 
