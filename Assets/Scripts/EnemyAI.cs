@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyAI : MonoBehaviour
 {
     public Transform player; 
@@ -22,7 +23,7 @@ public class EnemyAI : MonoBehaviour
         startPosition = transform.position; 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
         if (verticalMovement) Flip();
@@ -30,20 +31,18 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
+        // Cache values to reduce repeated property access
+        var t = transform;
         Vector2 linearVelocity = rb.linearVelocity;
 
         if (verticalMovement)
-        {
             linearVelocity.y = (movingForward ? 1 : -1) * speed;
-        }
         else
-        {
             linearVelocity.x = (movingForward ? 1 : -1) * speed;
-        }
 
         rb.linearVelocity = linearVelocity;
 
-        float position = verticalMovement ? transform.position.y : transform.position.x;
+        float position = verticalMovement ? t.position.y : t.position.x;
         float minLimit = verticalMovement ? startPosition.y + minBound : startPosition.x + minBound;
         float maxLimit = verticalMovement ? startPosition.y + maxBound : startPosition.x + maxBound;
 

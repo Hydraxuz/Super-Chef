@@ -10,9 +10,19 @@ public class Powerup : MonoBehaviour
         // Check if the colliding object has the tag "Player"
         if (collision.CompareTag("Player"))
         {
-            powerupEffect.Apply(collision.gameObject);
-            PowerupManager.Instance.ReactivatePowerup(gameObject, inactiveDuration);
-            gameObject.SetActive(false);
+            if (powerupEffect != null)
+                powerupEffect.Apply(collision.gameObject);
+
+            if (PowerupManager.Instance != null)
+            {
+                PowerupManager.Instance.ReactivatePowerup(gameObject, inactiveDuration);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("PowerupManager.Instance is null — powerup will not be reactivated automatically.");
+                gameObject.SetActive(false);
+            }
         }
     }
 }

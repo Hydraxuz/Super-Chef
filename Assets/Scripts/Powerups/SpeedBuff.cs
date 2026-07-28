@@ -16,23 +16,36 @@ public class SpeedBuff : PowerupEffect
             SpriteRenderer spriteRenderer = target.GetComponent<SpriteRenderer>();
 
             // Store the original color for resetting
-            Color originalColor = spriteRenderer.color;
+            Color originalColor = spriteRenderer != null ? spriteRenderer.color : Color.white;
+
+            // Store original speed so we can restore it
+            float originalSpeed = playerController.speed;
 
             // Apply speed buff and change color to yellow
-            playerController.speed += amount;
-            spriteRenderer.color = Color.yellow;
+            playerController.speed = originalSpeed + amount;
+            if (spriteRenderer != null) spriteRenderer.color = Color.yellow;
 
-            // Coroutine to remove the buff after the specified duration
-            target.GetComponent<MonoBehaviour>().StartCoroutine(RemoveBuffAfterDuration(playerController, spriteRenderer, originalColor));
+            // Request the PowerupManager to run the coroutine; fallback to starting on target if manager missing
+            var routine = RemoveBuffAfterDuration(playerController, spriteRenderer, originalColor, originalSpeed);
+            if (PowerupManager.Instance != null)
+                PowerupManager.Instance.RunCoroutine(routine);
+            else
+            {
+                var mb = target.GetComponent<MonoBehaviour>();
+                if (mb != null)
+                    mb.StartCoroutine(routine);
+                else
+                    Debug.LogWarning("Cannot start powerup coroutine: no PowerupManager and target has no MonoBehaviour to run coroutines.");
+            }
         }
     }
-
-    private IEnumerator RemoveBuffAfterDuration(PlayerController playerController, SpriteRenderer spriteRenderer, Color originalColor)
+    private IEnumerator RemoveBuffAfterDuration(PlayerController playerController, SpriteRenderer spriteRenderer, Color originalColor, float originalSpeed)
     {
         yield return new WaitForSeconds(duration);
-        playerController.speed = 12;  // Set speed to 12 directly
+        if (playerController != null)
+            playerController.speed = originalSpeed;
 
-        // Reset color to original
-        spriteRenderer.color = originalColor;
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
     }
 }

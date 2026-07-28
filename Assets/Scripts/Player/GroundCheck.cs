@@ -12,13 +12,12 @@ public class GroundCheck : MonoBehaviour
     {
         // Reset the ground state values at the start of each check
         IsTouchingGround = false;
+        // Ensure we have a valid transform to sample from
+        Vector3 checkPos = groundCheckTransform != null ? groundCheckTransform.position : transform.position;
 
         // Perform an overlap circle check at the ground check position
-        Collider2D groundHit = Physics2D.OverlapCircle(groundCheckTransform.position, groundCheckRadius, groundLayer);
+        Collider2D groundHit = Physics2D.OverlapCircle(checkPos, groundCheckRadius, groundLayer);
 
-        if (groundHit != null)
-        {
-            IsTouchingGround = true;
-        }
+        IsTouchingGround = groundHit != null;
     }
 }

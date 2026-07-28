@@ -11,6 +11,7 @@ public class PowerupManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -23,9 +24,19 @@ public class PowerupManager : MonoBehaviour
         StartCoroutine(ReactivateAfterDelay(powerup, duration));
     }
 
+    /// <summary>
+    /// Allow ScriptableObjects to request coroutines run on the manager.
+    /// </summary>
+    public Coroutine RunCoroutine(IEnumerator routine)
+    {
+        if (routine == null || !enabled) return null;
+        return StartCoroutine(routine);
+    }
+
     private IEnumerator ReactivateAfterDelay(GameObject powerup, float duration)
     {
         yield return new WaitForSeconds(duration);
         powerup.SetActive(true);
     }
 }
+

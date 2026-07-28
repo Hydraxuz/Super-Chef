@@ -1,38 +1,42 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(GroundCheck))]
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 12f; // Base movement speed
-    public float jumpHeight = 18f; // Jump force
-    private Vector2 moveInput; // Stores movement input
+    [Header("Movement")]
+    public float speed = 12f;
+    public float jumpHeight = 18f;
 
-    public PhysicsMaterial2D slipMaterial; // Physics material for air
-    public PhysicsMaterial2D stickMaterial; // Physics material for ground
+    [Header("Physics")]
+    public PhysicsMaterial2D slipMaterial;
+    public PhysicsMaterial2D stickMaterial;
+    public float coyoteTime = 0.1f;
+    public float fallMultiplier = 2f;
 
-    public float coyoteTime = 0.1f; // Coyote time duration
-    public float coyoteCounter; // Coyote time counter
-    public float fallMultiplier = 2f; // Fall multiplier for gravity
+    private float coyoteCounter;
+    private Vector2 moveInput;
 
-    private Rigidbody2D player; // Player's Rigidbody2D
-    private Animator playerAnimation; // Player's Animator
-    private GroundCheck groundCheck; // Reference to the GroundCheck component
-    private PlayerInputActions inputActions; // Input actions for player controls
+    private Rigidbody2D player;
+    private Animator playerAnimation;
+    private GroundCheck groundCheck;
+    private PlayerInputActions inputActions;
+    private float initialScaleX;
 
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<Animator>();
-        groundCheck = GetComponent<GroundCheck>(); // Get the GroundCheck component
+        groundCheck = GetComponent<GroundCheck>();
 
-        inputActions = new PlayerInputActions(); // Create a new instance of the input actions
+        inputActions = new PlayerInputActions();
+        initialScaleX = transform.localScale.x;
     }
 
     private void OnEnable()
     {
-        inputActions.Enable(); // Enable the input actions
+        inputActions.Enable();
 
-        // Subscribe to input events
         inputActions.Player.Move.performed += OnMove;
         inputActions.Player.Move.canceled += OnMoveCanceled;
         inputActions.Player.Jump.performed += OnJump;
@@ -40,109 +44,89 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        // Unsubscribe from input events
         inputActions.Player.Move.performed -= OnMove;
         inputActions.Player.Move.canceled -= OnMoveCanceled;
         inputActions.Player.Jump.performed -= OnJump;
 
-        inputActions.Disable(); // Disable the input actions
+        inputActions.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Dispose();
     }
 
     private void FixedUpdate()
     {
-        // Update ground check
-        groundCheck.UpdateGroundCheck(); // Call the ground check update method
+        groundCheck.UpdateGroundCheck();
 
-        coyoteCounter = groundCheck.IsTouchingGround ? coyoteTime : coyoteCounter - Time.deltaTime;
+        if (groundCheck.IsTouchingGround)
+            coyoteCounter = coyoteTime;
+        else
+            coyoteCounter -= Time.fixedDeltaTime;
 
-        HandleMovement(); // Handle movement in physics updates
-        ApplyGravityMOdifier(); // Apply gravity modifier based on fall state
-        UpdateAnimations(); // Update player animations
-        UpdateMaterial(); // Update physics material based on ground state and input
+        HandleMovement();
+        ApplyGravityModifier();
+        UpdateAnimations();
+        UpdateMaterial();
     }
 
     private void HandleMovement()
     {
-        // Normal movement
         player.linearVelocity = new Vector2(moveInput.x * speed, player.linearVelocity.y);
 
         if (moveInput.x != 0f)
         {
-            // Flip player based on movement direction
-            transform.localScale = new Vector2(Mathf.Sign(moveInput.x), 1f);
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(initialScaleX) * Mathf.Sign(moveInput.x);
+            transform.localScale = scale;
         }
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>(); // Read movement input
-
-        // Switch to slip material when there is movement input
-        if (moveInput.x != 0f)
-        {
-            player.sharedMaterial = slipMaterial; // Apply slip material when moving
-        }
+        moveInput = context.ReadValue<Vector2>();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        moveInput = Vector2.zero; // Reset movement input
+        moveInput = Vector2.zero;
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        if (context.performed)
+            TryJump();
+    }
+
+    private void TryJump()
+    {
         if (groundCheck.IsTouchingGround || coyoteCounter > 0f)
         {
-            // Apply jump force if grounded
             player.linearVelocity = new Vector2(player.linearVelocity.x, jumpHeight);
-            coyoteCounter = 0f; // Reset coyote time counter
+            coyoteCounter = 0f;
         }
     }
 
     private void UpdateAnimations()
     {
-        // Update animations based on movement and ground state
         playerAnimation.SetFloat("Speed", Mathf.Abs(player.linearVelocity.x));
         playerAnimation.SetBool("OnGround", groundCheck.IsTouchingGround);
     }
 
     private void UpdateMaterial()
     {
-        // If grounded and no input, switch to stick material
-        if (groundCheck.IsTouchingGround && moveInput.x == 0f)
-        {
-            if (player.sharedMaterial != stickMaterial)
-            {
-                player.sharedMaterial = stickMaterial;
-            }
-        }
-        // If not grounded, use slip material
-        else if (!groundCheck.IsTouchingGround)
-        {
-            if (player.sharedMaterial != slipMaterial)
-            {
-                player.sharedMaterial = slipMaterial;
-            }
-        }
-        // Otherwise, if there's input, use slip material
-        else if (moveInput.x != 0f)
-        {
-            if (player.sharedMaterial != slipMaterial)
-            {
-                player.sharedMaterial = slipMaterial;
-            }
-        }
+        PhysicsMaterial2D desiredMaterial =
+            groundCheck.IsTouchingGround && moveInput.x == 0f
+                ? stickMaterial
+                : slipMaterial;
+
+        if (player.sharedMaterial != desiredMaterial)
+            player.sharedMaterial = desiredMaterial;
     }
-    private void ApplyGravityMOdifier()
+
+    private void ApplyGravityModifier()
     {
-        // Apply fall multiplier when falling
-        if (player.linearVelocity.y < 0f)
-        {
-            player.gravityScale = fallMultiplier;
-        }
-        else
-        {
-            player.gravityScale = 1f;
-        }
+        player.gravityScale = player.linearVelocity.y < 0f ? fallMultiplier : 1f;
     }
 }

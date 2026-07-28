@@ -8,10 +8,17 @@ public class PlayerRespawn : MonoBehaviour
     public GameObject fallDetector;
 
     private static List<GameObject> deactivatedEnemies = new List<GameObject>();
+    private float originalSpeed = 12f;
+    private Color originalColor = Color.white;
 
     private void Start()
     {
         respawnPoint = transform.position; // Initialize respawn point
+        PlayerController playerController = GetComponent<PlayerController>();
+        if (playerController != null) originalSpeed = playerController.speed;
+
+        var sr = GetComponent<SpriteRenderer>();
+        if (sr != null) originalColor = sr.color;
     }
 
     private void Update()
@@ -21,7 +28,8 @@ public class PlayerRespawn : MonoBehaviour
 
     private void UpdateFallDetectorPosition()
     {
-        fallDetector.transform.position = new Vector2(transform.position.x, fallDetector.transform.position.y);
+        if (fallDetector != null)
+            fallDetector.transform.position = new Vector2(transform.position.x, fallDetector.transform.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,8 +70,9 @@ public class PlayerRespawn : MonoBehaviour
         PlayerController playerController = GetComponent<PlayerController>();
         if (playerController != null)
         {
-            playerController.speed = 12f; // Reset speed to 12
-            GetComponent<SpriteRenderer>().color = Color.white; // Reset color to white
+            playerController.speed = originalSpeed; // Restore original speed
+            var sr = GetComponent<SpriteRenderer>();
+            if (sr != null) sr.color = originalColor; // Restore original color
         }
     }
 

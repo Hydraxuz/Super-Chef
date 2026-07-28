@@ -15,5 +15,4 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Credits.unity
     guid: 2fd0fe3fd800b5241b62a30cb947611f
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d6cc2acd6cd9c0049a69bb8bf9a9990d, type: 3}
-  m_UseUCBPForAssetBundles: 0
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: bb55519cc1a6fef43ba3445238bfb395, type: 3}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FPSlimiter : MonoBehaviour
 {
-    private int targetFPS = 60;
+    [SerializeField] private int targetFPS = 60;
 
     void Awake()
     {
